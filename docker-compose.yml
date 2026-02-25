@@ -1,0 +1,19 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_join_benchmark
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bench
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+      - ./bench:/bench
+    command: [
+      "--local-infile=1",
+      "--innodb_buffer_pool_size=1G",
+      "--innodb_flush_log_at_trx_commit=2",
+      "--sync_binlog=0",
+      "--log_bin=0"
+    ]
