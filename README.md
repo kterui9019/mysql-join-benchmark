@@ -12,7 +12,7 @@ A small prototype to compare the cost of a 4-table JOIN versus a single-table SE
 
 ## Setup
 ```bash
-cd /Users/terui/workspace/mysql-join-benchmark
+cd /path/to/mysql-join-benchmark
 docker compose up -d
 python3 -m pip install -r requirements.txt
 python3 scripts/generate_data.py --rows 500000 --out ./bench/data
